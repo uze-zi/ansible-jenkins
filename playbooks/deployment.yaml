@@ -1,0 +1,41 @@
+- name: Build & Deploy Docker Container
+  hosts: dockerservers
+  gather_facts: false
+  remote_user: root
+  tasks:
+    - name: Stopping the container
+      docker_container:
+        name: spering-container
+        image: spering:latest
+        state: stopped
+        pull: no
+      ignore_errors: yes
+     
+    - name: Removing the container
+      docker_container:
+        name: spering-container
+        state: absent
+      ignore_errors: yes
+  
+    - name: Removing Docker Image 
+      docker_image:
+        name: spering:latest
+        state: absent
+      ignore_errors: yes
+          
+    - name: Building Docker Image
+      docker_image:
+        name: spering:latest
+        source: build
+        build:
+          path: ~/project/
+        state: present
+     
+    - name: Creating the container
+      docker_container:
+        name: spering-container
+        image: spering:latest
+        ports:
+          - "80:80"
+        state: started
+        pull: never
