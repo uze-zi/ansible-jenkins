@@ -69,7 +69,7 @@ This project automates the deployment of a web application using:
 git clone https://github.com/<your-username>/ansible-jenkins.git
 
 cd ansible-jenkins
-
+```
 ### 2. Configure Jenkins
 
     Install required plugins:
@@ -77,7 +77,7 @@ cd ansible-jenkins
         Docker Pipeline
     Create a Freestyle Project with these build steps:
 
-    bash
+    ```bash
 
 scp -r $WORKSPACE/* root@<YOUR-EC2-IP>:~/project/
 
