@@ -1,7 +1,3 @@
-# Ansible-Jenkins
-## A project to demo a CICD pipeline build, test and deploy with Ansible, Jenkins, and Docker
-markdown
-
 # CI/CD Pipeline with Jenkins, Ansible, and Docker
 
 
@@ -74,7 +70,7 @@ git clone https://github.com/<your-username>/ansible-jenkins.git
 
 cd ansible-jenkins
 
-2. Configure Jenkins
+### 2. Configure Jenkins
 
     Install required plugins:
         Ansible
@@ -87,7 +83,7 @@ scp -r $WORKSPACE/* root@<YOUR-EC2-IP>:~/project/
 
     ansible-playbook /var/lib/jenkins/playbooks/deployment.yaml
 
-3. Deploy with Ansible
+### 3. Deploy with Ansible
 
 bash
 
